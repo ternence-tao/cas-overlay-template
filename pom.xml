@@ -11,15 +11,6 @@
     <build>
         <plugins>
             <plugin>
-                <groupId>com.rimerosolutions.maven.plugins</groupId>
-                <artifactId>wrapper-maven-plugin</artifactId>
-                <version>0.0.4</version>
-                <configuration>
-                    <verifyDownload>true</verifyDownload>
-                    <checksumAlgorithm>MD5</checksumAlgorithm>
-                </configuration>
-            </plugin>
-            <plugin>
                 <groupId>org.springframework.boot</groupId>
                 <artifactId>spring-boot-maven-plugin</artifactId>
                 <version>${springboot.version}</version>
@@ -74,7 +65,9 @@
 
         <mainClassName>org.springframework.boot.loader.WarLauncher</mainClassName>
         <isExecutable>false</isExecutable>
-        <manifestFileToUse>${project.build.directory}/war/work/org.apereo.cas/cas-server-webapp${app.server}/META-INF/MANIFEST.MF</manifestFileToUse>
+        <manifestFileToUse>
+            ${project.build.directory}/war/work/org.apereo.cas/cas-server-webapp${app.server}/META-INF/MANIFEST.MF
+        </manifestFileToUse>
 
         <maven.compiler.source>1.8</maven.compiler.source>
         <maven.compiler.target>1.8</maven.compiler.target>
@@ -136,7 +129,7 @@
             <properties>
                 <mainClassName>org.apereo.cas.web.CasWebApplication</mainClassName>
                 <isExecutable>true</isExecutable>
-                <manifestFileToUse></manifestFileToUse>
+                <manifestFileToUse/>
             </properties>
             <build>
                 <plugins>
@@ -212,4 +205,5 @@
             </build>
         </profile>
     </profiles>
+
 </project>
